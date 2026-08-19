@@ -180,4 +180,5 @@ Organization
 #### Commits
 - Allow comments on individual commits: `ON`
 #### Issues
-- Auto-close issues with merged linked pull requests: `OFF`
+- Auto-close issues with merged linked pull requests: `ON`
+
