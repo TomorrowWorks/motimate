@@ -78,6 +78,7 @@ Issue, Branch, Commit, Pull Request는 같은 작업 유형을 기준으로 이�
 | `refactor` | `[Refactor]` | 기능 변경 없는 코드 구조 개선 |
 | `test` | `[Test]` | 테스트 추가 및 수정 |
 | `docs` | `[Docs]` | 문서 작성 및 수정 |
+| `discussion` | `[Discussion]` | 정책·기획·설계안을 리뷰로 논의하고 확정 |
 | `chore` | `[Chore]` | 빌드, 설정, 의존성 등의 기타 작업 |
 | `infra` | `[Infra]` | 인프라 및 배포 환경 변경 |
 
@@ -100,6 +101,14 @@ Issue Template을 사용하는 경우 유형에 맞는 접두사가 자동으로
 예: `feat/12/signup`
 
 Branch 이름의 타입은 소문자를 사용하고, 이슈 번호에는 `#`을 붙이지 않습니다. 작업 요약은 짧은 영문 소문자와 하이픈을 사용합니다.
+
+정책·기획·설계안을 Pull Request 리뷰로 논의하는 경우에는 `discussion` 타입을 사용합니다.
+
+```text
+discussion/<이슈번호>/<작업 요약>
+```
+
+예: `discussion/14/policy-review`
 
 ### Commit 메시지
 
@@ -130,6 +139,28 @@ Merge 방식은 **Squash Merge**로 통일합니다. 작업 브랜치에서는 �
 Squash된 Commit의 Message는 **PR Title**을 사용합니다. 따라서 PR Title은 해당 작업의 내용을 명확하게 표현하도록 작성합니다.
 
 Pull Request는 Organization Project에 추가하지 않습니다. 대신 PR 본문의 `Closes #<이슈번호>`를 통해 해당 Repository의 Issue를 연결하며, PR이 Merge되면 연결된 Issue가 닫히도록 합니다.
+
+정책·기획·설계 문서는 Draft Pull Request로 먼저 공유합니다. 리뷰 댓글에서 쟁점을 논의하고, 합의된 내용을 문서에 반영한 뒤 `Ready for review`로 전환합니다. 리뷰가 끝나기 전에는 정책을 `Accepted`로 표시하지 않습니다.
+
+정책 토의 절차는 다음과 같이 진행합니다.
+
+```text
+Issue 생성
+  ↓
+discussion/<이슈번호>/<작업 요약> 브랜치 생성
+  ↓
+Draft Pull Request 생성
+  ↓
+리뷰 댓글로 쟁점 논의
+  ↓
+문서 수정 및 결정 내용 기록
+  ↓
+Ready for review 전환
+  ↓
+승인 후 Squash Merge
+```
+
+GitHub Discussions를 사용하지 않고 Pull Request 리뷰를 토의 공간으로 사용합니다. 정책이 확정되면 PR을 병합한 커밋을 기준 문서의 확정 시점으로 기록합니다.
 
 현재 기본으로 사용중인 Repository 들의 Pull Request 설정은 다음과 같습니다.
 
@@ -176,6 +207,24 @@ Project의 작업 관리 단위는 Issue입니다. Pull Request는 Project에 �
 이를 통해 Repository는 코드의 책임 영역에 따라 분리하면서도 프로젝트 전체의 작업 흐름은 하나의 공간에서 관리할 수 있습니다.
 
 ## 문서 및 GitHub Template 배치
+
+메타 Repository의 문서는 전체 개요·운영 규칙과 기능별 요구사항·정책을 구분합니다. 기능별 정책은 `features/`를 기준 문서로 사용하고, Backend와 Frontend 구현 참고 문서는 `docs/backend/`와 `docs/frontend/`에 배치합니다.
+
+```text
+docs/
+├── README.md
+├── backend/
+└── frontend/
+
+features/
+├── README.md
+└── <feature>/
+    ├── README.md
+    ├── policy.md
+    └── requirements.md
+```
+
+`features/` 문서는 여러 Repository가 공통으로 따라야 하는 제품 기준을 작성합니다. `docs/backend/`와 `docs/frontend/` 문서는 해당 기준을 각 기술 스택에 적용하는 방법을 작성합니다. 같은 정책을 여러 문서에 복사하지 않고 기준 문서를 링크합니다.
 
 문서와 Template은 각 Repository에서 다음 위치에 배치합니다. 아래 경로는 Repository Root를 기준으로 합니다.
 

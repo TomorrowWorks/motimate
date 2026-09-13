@@ -1,0 +1,42 @@
+name: Documentation
+description: 문서, 운영 규칙, Repository Template을 작성하거나 수정합니다.
+title: "[Docs] "
+labels:
+  - documentation
+type: Task
+projects:
+  - TomorrowWorks/2
+body:
+  - type: markdown
+    attributes:
+      value: |
+        문서 변경의 목적과 적용 범위를 작성합니다.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: 무엇을 왜 변경하는지 작성합니다.
+      placeholder: 문서 변경의 목적과 범위를 작성합니다.
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Tasks
+      description: 실제로 완료해야 하는 문서 작업과 검증 항목을 작성합니다.
+      placeholder: |
+        - [ ]
+        - [ ]
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: 관련 문서, Issue, 구현 Repository 또는 공식 자료를 작성합니다.
+      placeholder: 관련 경로와 링크를 작성합니다.
+    validations:
+      required: false

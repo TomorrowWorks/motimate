@@ -1,0 +1,43 @@
+name: Discussion
+description: 정책·기획·설계안을 리뷰로 논의하고 확정합니다.
+title: "[Discussion] "
+labels:
+  - documentation
+type: Task
+projects:
+  - TomorrowWorks/2
+body:
+  - type: markdown
+    attributes:
+      value: |
+        이 Issue는 정책·기획·설계안을 Draft Pull Request 리뷰로 논의하기 위한 작업입니다.
+        합의된 내용은 관련 문서에 반영하고, 리뷰가 끝난 뒤 확정합니다.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: 논의할 주제와 현재 제안된 방향을 작성합니다.
+      placeholder: 논의 목적, 배경, 현재 제안을 작성합니다.
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Tasks
+      description: 리뷰를 통해 결정하고 문서에 반영해야 하는 항목을 작성합니다.
+      placeholder: |
+        - [ ]
+        - [ ]
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: 관련 요구사항, 기존 정책, 디자인, API 또는 공식 자료를 작성합니다.
+      placeholder: 관련 경로와 링크를 작성합니다.
+    validations:
+      required: false
