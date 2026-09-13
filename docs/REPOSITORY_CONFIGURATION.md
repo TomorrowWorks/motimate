@@ -78,6 +78,7 @@ Issue, Branch, Commit, Pull Request는 같은 작업 유형을 기준으로 이�
 | `refactor` | `[Refactor]` | 기능 변경 없는 코드 구조 개선 |
 | `test` | `[Test]` | 테스트 추가 및 수정 |
 | `docs` | `[Docs]` | 문서 작성 및 수정 |
+| `discussion` | `[Discussion]` | 정책·기획·설계안을 리뷰로 논의하고 확정 |
 | `chore` | `[Chore]` | 빌드, 설정, 의존성 등의 기타 작업 |
 | `infra` | `[Infra]` | 인프라 및 배포 환경 변경 |
 
@@ -100,6 +101,14 @@ Issue Template을 사용하는 경우 유형에 맞는 접두사가 자동으로
 예: `feat/12/signup`
 
 Branch 이름의 타입은 소문자를 사용하고, 이슈 번호에는 `#`을 붙이지 않습니다. 작업 요약은 짧은 영문 소문자와 하이픈을 사용합니다.
+
+정책·기획·설계안을 Pull Request 리뷰로 논의하는 경우에는 `discussion` 타입을 사용합니다.
+
+```text
+discussion/<이슈번호>/<작업 요약>
+```
+
+예: `discussion/14/policy-review`
 
 ### Commit 메시지
 
@@ -130,6 +139,28 @@ Merge 방식은 **Squash Merge**로 통일합니다. 작업 브랜치에서는 �
 Squash된 Commit의 Message는 **PR Title**을 사용합니다. 따라서 PR Title은 해당 작업의 내용을 명확하게 표현하도록 작성합니다.
 
 Pull Request는 Organization Project에 추가하지 않습니다. 대신 PR 본문의 `Closes #<이슈번호>`를 통해 해당 Repository의 Issue를 연결하며, PR이 Merge되면 연결된 Issue가 닫히도록 합니다.
+
+정책·기획·설계 문서는 Draft Pull Request로 먼저 공유합니다. 리뷰 댓글에서 쟁점을 논의하고, 합의된 내용을 문서에 반영한 뒤 `Ready for review`로 전환합니다. 리뷰가 끝나기 전에는 정책을 `Accepted`로 표시하지 않습니다.
+
+정책 토의 절차는 다음과 같이 진행합니다.
+
+```text
+Issue 생성
+  ↓
+discussion/<이슈번호>/<작업 요약> 브랜치 생성
+  ↓
+Draft Pull Request 생성
+  ↓
+리뷰 댓글로 쟁점 논의
+  ↓
+문서 수정 및 결정 내용 기록
+  ↓
+Ready for review 전환
+  ↓
+승인 후 Squash Merge
+```
+
+GitHub Discussions를 사용하지 않고 Pull Request 리뷰를 토의 공간으로 사용합니다. 정책이 확정되면 PR을 병합한 커밋을 기준 문서의 확정 시점으로 기록합니다.
 
 현재 기본으로 사용중인 Repository 들의 Pull Request 설정은 다음과 같습니다.
 
@@ -177,22 +208,23 @@ Project의 작업 관리 단위는 Issue입니다. Pull Request는 Project에 �
 
 ## 문서 및 GitHub Template 배치
 
-문서와 Template은 각 Repository에서 다음 위치에 배치합니다. 아래 경로는 Repository Root를 기준으로 합니다.
+전체 문서 구조와 문서별 역할은 [docs/README.md](README.md)를 기준으로 확인합니다.
 
-| Repository         | 문서 또는 Template                                 | 배치 위치                                                              |
-| ------------------ | ---------------------------------------------- | ------------------------------------------------------------------ |
-| `motimate`         | 프로젝트 개요                                        | `docs/PROJECT_OVERVIEW.md`                                         |
-| `motimate`         | Repository 운영 규칙                               | `docs/REPOSITORY_CONFIGURATION.md`                                 |
-| `motimate-app`     | 프로젝트 소개 및 실행 방법                                | `README.md`                                                        |
-| `motimate-app`     | Architecture, Engineering Guide, Design System | `ARCHITECTURE.md`, `ENGINEERING_GUIDE.md`, `DESIGN_SYSTEM.md`      |
-| `motimate-app`     | Pull Request Template                          | `.github/PULL_REQUEST_TEMPLATE.md`                                 |
-| `motimate-app`     | Issue Template                                 | `.github/ISSUE_TEMPLATE/*.yml`                                     |
-| `motimate-backend` | 프로젝트 소개 및 실행 방법                                | `README.md`                                                        |
-| `motimate-backend` | Architecture, Engineering Guide, API           | `ARCHITECTURE.md`, `ENGINEERING_GUIDE.md`, `API.md`                |
-| `motimate-backend` | Pull Request Template                          | `.github/PULL_REQUEST_TEMPLATE.md`                                 |
-| `motimate-backend` | Issue Template                                 | `.github/ISSUE_TEMPLATE/*.yml`                                     |
-| `motimate-infra`   | 인프라 소개 및 운영 방법                                 | `README.md`                                                        |
-| `motimate-infra`   | Pull Request 및 Issue Template                  | `.github/PULL_REQUEST_TEMPLATE.md`, `.github/ISSUE_TEMPLATE/*.yml` |
+Repository별 실제 문서와 Template 배치는 다음과 같습니다. 아래 경로는 Repository Root를 기준으로 합니다.
+
+| Repository | 문서 또는 Template | 배치 위치 |
+| --- | --- | --- |
+| `motimate` | 프로젝트 개요 | `docs/PROJECT_OVERVIEW.md` |
+| `motimate` | Repository 운영 규칙 | `docs/REPOSITORY_CONFIGURATION.md` |
+| `motimate` | 문서 인덱스 | `docs/README.md` |
+| `motimate` | 기능 문서 인덱스 | `features/README.md` |
+| `motimate` | Issue Template | `.github/ISSUE_TEMPLATE/*.yml` |
+| `motimate` | Pull Request Template | `.github/PULL_REQUEST_TEMPLATE.md` |
+| `motimate-backend` | 프로젝트 소개 및 실행 방법 | `README.md` |
+| `motimate-backend` | Pull Request Template | `.github/PULL_REQUEST_TEMPLATE.md` |
+| `motimate-app` | 프로젝트 소개 및 실행 방법 | `README.md` |
+| `motimate-app` | Pull Request Template | `.github/PULL_REQUEST_TEMPLATE.md` |
+| `motimate-infra` | 인프라 소개 및 운영 방법 | `README.md` |
 
 README에는 Repository별 핵심 정보와 문서 링크를 두고, 상세 설계 및 개발 지침은 별도 문서(./docs)로 관리합니다.
 
