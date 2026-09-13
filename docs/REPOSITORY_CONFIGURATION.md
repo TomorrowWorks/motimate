@@ -208,40 +208,23 @@ Project의 작업 관리 단위는 Issue입니다. Pull Request는 Project에 �
 
 ## 문서 및 GitHub Template 배치
 
-메타 Repository의 문서는 전체 개요·운영 규칙과 기능별 요구사항·정책을 구분합니다. 기능별 정책은 `features/`를 기준 문서로 사용하고, Backend와 Frontend 구현 참고 문서는 `docs/backend/`와 `docs/frontend/`에 배치합니다.
+전체 문서 구조와 문서별 역할은 [docs/README.md](README.md)를 기준으로 확인합니다.
 
-```text
-docs/
-├── README.md
-├── backend/
-└── frontend/
+Repository별 실제 문서와 Template 배치는 다음과 같습니다. 아래 경로는 Repository Root를 기준으로 합니다.
 
-features/
-├── README.md
-└── <feature>/
-    ├── README.md
-    ├── policy.md
-    └── requirements.md
-```
-
-`features/` 문서는 여러 Repository가 공통으로 따라야 하는 제품 기준을 작성합니다. `docs/backend/`와 `docs/frontend/` 문서는 해당 기준을 각 기술 스택에 적용하는 방법을 작성합니다. 같은 정책을 여러 문서에 복사하지 않고 기준 문서를 링크합니다.
-
-문서와 Template은 각 Repository에서 다음 위치에 배치합니다. 아래 경로는 Repository Root를 기준으로 합니다.
-
-| Repository         | 문서 또는 Template                                 | 배치 위치                                                              |
-| ------------------ | ---------------------------------------------- | ------------------------------------------------------------------ |
-| `motimate`         | 프로젝트 개요                                        | `docs/PROJECT_OVERVIEW.md`                                         |
-| `motimate`         | Repository 운영 규칙                               | `docs/REPOSITORY_CONFIGURATION.md`                                 |
-| `motimate-app`     | 프로젝트 소개 및 실행 방법                                | `README.md`                                                        |
-| `motimate-app`     | Architecture, Engineering Guide, Design System | `ARCHITECTURE.md`, `ENGINEERING_GUIDE.md`, `DESIGN_SYSTEM.md`      |
-| `motimate-app`     | Pull Request Template                          | `.github/PULL_REQUEST_TEMPLATE.md`                                 |
-| `motimate-app`     | Issue Template                                 | `.github/ISSUE_TEMPLATE/*.yml`                                     |
-| `motimate-backend` | 프로젝트 소개 및 실행 방법                                | `README.md`                                                        |
-| `motimate-backend` | Architecture, Engineering Guide, API           | `ARCHITECTURE.md`, `ENGINEERING_GUIDE.md`, `API.md`                |
-| `motimate-backend` | Pull Request Template                          | `.github/PULL_REQUEST_TEMPLATE.md`                                 |
-| `motimate-backend` | Issue Template                                 | `.github/ISSUE_TEMPLATE/*.yml`                                     |
-| `motimate-infra`   | 인프라 소개 및 운영 방법                                 | `README.md`                                                        |
-| `motimate-infra`   | Pull Request 및 Issue Template                  | `.github/PULL_REQUEST_TEMPLATE.md`, `.github/ISSUE_TEMPLATE/*.yml` |
+| Repository | 문서 또는 Template | 배치 위치 |
+| --- | --- | --- |
+| `motimate` | 프로젝트 개요 | `docs/PROJECT_OVERVIEW.md` |
+| `motimate` | Repository 운영 규칙 | `docs/REPOSITORY_CONFIGURATION.md` |
+| `motimate` | 문서 인덱스 | `docs/README.md` |
+| `motimate` | 기능 문서 인덱스 | `features/README.md` |
+| `motimate` | Issue Template | `.github/ISSUE_TEMPLATE/*.yml` |
+| `motimate` | Pull Request Template | `.github/PULL_REQUEST_TEMPLATE.md` |
+| `motimate-backend` | 프로젝트 소개 및 실행 방법 | `README.md` |
+| `motimate-backend` | Pull Request Template | `.github/PULL_REQUEST_TEMPLATE.md` |
+| `motimate-app` | 프로젝트 소개 및 실행 방법 | `README.md` |
+| `motimate-app` | Pull Request Template | `.github/PULL_REQUEST_TEMPLATE.md` |
+| `motimate-infra` | 인프라 소개 및 운영 방법 | `README.md` |
 
 README에는 Repository별 핵심 정보와 문서 링크를 두고, 상세 설계 및 개발 지침은 별도 문서(./docs)로 관리합니다.
 
