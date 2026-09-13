@@ -19,9 +19,14 @@ Motimate의 공통 문서와 기능별 기준 문서의 위치를 안내합니�
 - 정책·기획·설계 변경은 `discussion` 브랜치와 Draft PR 리뷰로 논의합니다.
 - 리뷰가 끝나기 전에는 정책을 확정된 것으로 표시하지 않습니다.
 
-## 기능 문서
+## 프로젝트 공통 기준 문서
 
+- [프로젝트 개요](PROJECT_OVERVIEW.md)
+  - 서비스 목표, MVP 범위, 전체 기능 개요를 정리합니다.
+- [Repository 운영 규칙](REPOSITORY_CONFIGURATION.md)
+  - Repository, Branch, Issue, Pull Request 운영 규칙을 정리합니다.
 - [기능 문서 인덱스](../features/README.md)
+  - Backend와 Frontend가 공통으로 따라야 하는 기능 요구사항과 정책을 연결합니다.
 
 ## 기술별 문서
 
