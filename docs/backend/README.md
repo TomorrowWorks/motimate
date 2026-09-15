@@ -12,3 +12,7 @@ Backend 구현에 필요한 문서의 진입점입니다.
 ## 기능 문서 연결
 
 기능별 요구사항과 정책은 [기능 문서 인덱스](../../features/README.md)에서 확인합니다.
+
+## 기능별 Backend 문서
+
+- [Goal API 예정안](goal_api.md)

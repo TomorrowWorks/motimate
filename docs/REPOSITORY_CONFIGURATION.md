@@ -218,6 +218,8 @@ Repository별 실제 문서와 Template 배치는 다음과 같습니다. 아래
 | `motimate` | Repository 운영 규칙 | `docs/REPOSITORY_CONFIGURATION.md` |
 | `motimate` | 문서 인덱스 | `docs/README.md` |
 | `motimate` | 기능 문서 인덱스 | `features/README.md` |
+| `motimate` | Backend 구현 참고 문서 | `docs/backend/` |
+| `motimate` | Frontend 구현 참고 문서 | `docs/frontend/` |
 | `motimate` | Issue Template | `.github/ISSUE_TEMPLATE/*.yml` |
 | `motimate` | Pull Request Template | `.github/PULL_REQUEST_TEMPLATE.md` |
 | `motimate-backend` | 프로젝트 소개 및 실행 방법 | `README.md` |
