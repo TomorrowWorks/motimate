@@ -6,7 +6,7 @@
 
 | 기능 | 요구사항 | 정책 | 상태 |
 | --- | --- | --- | --- |
-| 기능 문서 | 작성 예정 | 작성 예정 | 구조 구성 |
+| Goal | [요구사항](goal/goal_requirement.md) | [정책](goal/goal_policy.md) | `Proposed` |
 
 ## 작성 원칙
 
