@@ -1,0 +1,4 @@
+interface:
+  display_name: "Feature Spec Writer"
+  short_description: "기능 초안을 요구사항과 정책 문서로 정리합니다"
+  default_prompt: "Use $feature-spec-writer to turn this draft into Motimate feature requirement and policy documents."
