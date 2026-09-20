@@ -6,7 +6,8 @@
 
 | 기능 | 요구사항 | 정책 | 상태 |
 | --- | --- | --- | --- |
-| Goal | [요구사항](goal/goal_requirement.md) | [정책](goal/goal_policy.md) | `Proposed` |
+| 할 일 | [요구사항](todo/todo_requirement.md) | [정책](todo/todo_policy.md) | `Proposed` |
+| 카테고리 | [요구사항](category/category_requirement.md) | [정책](category/category_policy.md) | `Proposed` |
 
 ## 작성 원칙
 
