@@ -7,6 +7,8 @@
 | 기능 | 요구사항 | 정책 | 상태 |
 | --- | --- | --- | --- |
 | Goal | [요구사항](goal/goal_requirement.md) | [정책](goal/goal_policy.md) | `Proposed` |
+| Auth | [요구사항](auth/auth_requirement.md) | [정책](auth/auth_policy.md) | `Proposed` |
+| Account | [요구사항](account/account_requirement.md) | [정책](account/account_policy.md) | `Proposed` |
 
 ## 작성 원칙
 
